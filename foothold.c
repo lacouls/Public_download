@@ -11,7 +11,7 @@ int main()
 {
 	const char* dirpath = "c:\\Users\\saurav\\Temp";
 	const char* filename = "c:\\Users\\saurav\\Temp\\evil.txt";
-    const char* filecontent = "wmic /user:“saurav@cyberlab.com” /node:@\“c:\Scripts\Apps\computer.txt\” process call ‘C:\deploy.bat’ /nointeractive\"";
+    const char* filecontent = "wmic /user:“saurav@cyberlab.com” /node:@\“c:\temp\computer.txt\” process call ‘C:\deploy.bat’ /nointeractive\"";
 
 
 //Create Directory
