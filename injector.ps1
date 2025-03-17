@@ -9,7 +9,7 @@
 start-sleep -s 10
 
 #compiles the c code to generated executable
-cmd.exe /c 'gcc "C:\Users\saurav\Desktop\injector.c" -o "C:\Users\saurav\Desktop\injector.exe"'
+cmd.exe /c 'gcc "C:\Users\saurav\Desktop\injector.c" -o "C:\Users\saurav\Desktop\injector.exe" -lurlmon'
 
 #Sleep for 5 second
 Start-Sleep -s 5
