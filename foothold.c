@@ -88,7 +88,7 @@ int main()
 				printf("%s", buffer);
 			}
 		} while (bResult && dwBytesRead > 0);
-		Sleep(3000);
+		Sleep(50000);
 		// Clean up
 		InternetCloseHandle(hRequest);
 		InternetCloseHandle(hConnect);
